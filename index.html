@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ken's Awesome Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-style: italic;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 10px;
+        }
+
+        .fun-fact {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .testimonial {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        .achievement {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .counter {
+            text-align: center;
+            font-size: 3em;
+            color: #667eea;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #764ba2;
+            transform: scale(1.1);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎉 KEN'S AWESOME WEBSITE 🎉</h1>
+            <p class="subtitle">The Internet's #1 Ken O'Connor Resource</p>
+            <p>👑 Est. Just Now 👑</p>
+        </header>
+
+        <div class="section">
+            <h2>📊 Official Ken Statistics</h2>
+            <p><strong>Times Ken has been awesome today:</strong></p>
+            <div class="counter" id="awesomeCounter">847</div>
+            <button onclick="incrementAwesome()">Ken did something awesome!</button>
+            <button onclick="resetCounter()">Reset (why would you though?)</button>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Fun Facts About Ken</h2>
+            <div class="fun-fact">
+                🦸‍♂️ Ken once debugged a production error just by staring at it intensely
+            </div>
+            <div class="fun-fact">
+                ☕ Ken's coffee-to-code ratio is classified information
+            </div>
+            <div class="fun-fact">
+                🎸 Ken can play "Wonderwall" at parties but chooses not to (we're grateful)
+            </div>
+            <div class="fun-fact">
+                🧠 Ken's browser has 247 tabs open at any given moment and knows where each one is
+            </div>
+            <div class="fun-fact">
+                🏆 Ken has never lost an argument with a compiler (the compiler just stopped responding)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏅 Achievements Unlocked</h2>
+            <div class="achievement">🎓 Professional Know-It-All</div>
+            <div class="achievement">☕ Coffee Connoisseur</div>
+            <div class="achievement">🎮 Meeting Survivor</div>
+            <div class="achievement">🐛 Bug Whisperer</div>
+            <div class="achievement">⌨️ Keyboard Warrior</div>
+            <div class="achievement">🌟 Legend Status</div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Testimonials</h2>
+            <div class="testimonial">
+                "Ken is... definitely a person who exists." - Ken's Mom
+            </div>
+            <div class="testimonial">
+                "I asked Ken for the time and got a 30-minute explanation of timezone databases. 10/10 would ask again." - Confused Coworker
+            </div>
+            <div class="testimonial">
+                "Ken explained to me how my toaster works. I don't even own a toaster." - Neighbor
+            </div>
+            <div class="testimonial">
+                "ERROR 404: Testimonial not found. Just kidding, Ken fixed that bug!" - The Internet
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📢 Important Announcements</h2>
+            <p class="blink" style="font-size: 1.5em; text-align: center; color: #dc3545;">
+                🚨 WARNING: This website is TOO AWESOME 🚨
+            </p>
+            <p style="text-align: center; margin-top: 20px;">
+                Please wear protective eyewear when viewing Ken's achievements
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>🎪 Random Ken Generator</h2>
+            <p style="text-align: center;">
+                <button onclick="generateRandomKen()">Generate Random Ken Fact</button>
+            </p>
+            <p id="randomFact" style="font-size: 1.3em; text-align: center; margin-top: 20px; min-height: 60px; color: #667eea; font-weight: bold;"></p>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 Ken O'Connor Industries LLC™</p>
+            <p>All rights reserved. Especially the good ones.</p>
+            <p style="margin-top: 20px;">
+                Visitors to this awesome website: <span id="visitorCount">1,000,000</span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let awesomeCount = 847;
+
+        function incrementAwesome() {
+            awesomeCount++;
+            document.getElementById('awesomeCounter').textContent = awesomeCount;
+            if (awesomeCount > 1000) {
+                alert('🎊 BREAKING: Ken has exceeded 1000 awesome moments! The internet is not prepared!');
+            }
+        }
+
+        function resetCounter() {
+            if (confirm('Are you SURE you want to reset Ken\'s awesomeness? This seems unwise...')) {
+                awesomeCount = 0;
+                document.getElementById('awesomeCounter').textContent = awesomeCount;
+            }
+        }
+
+        const randomFacts = [
+            "Ken once refactored an entire codebase during lunch break 🍕",
+            "Ken's idea of 'relaxing' is learning a new programming language 💻",
+            "Ken has a black belt in CSS flexbox 🥋",
+            "Ken's password is so secure, even Ken sometimes forgets it 🔐",
+            "Ken taught his rubber duck how to code 🦆",
+            "Ken can center a div without Googling it (probably lying) 📐",
+            "Ken's git commits are poetry 📝",
+            "Ken once fixed a bug that didn't exist yet ⏰",
+            "Ken's code runs on pure confidence and semicolons ✨",
+            "Ken types so fast, his keyboard filed for workers' compensation ⌨️"
+        ];
+
+        function generateRandomKen() {
+            const randomIndex = Math.floor(Math.random() * randomFacts.length);
+            document.getElementById('randomFact').textContent = randomFacts[randomIndex];
+        }
+
+        // Increment visitor count randomly
+        setInterval(() => {
+            const current = parseInt(document.getElementById('visitorCount').textContent.replace(/,/g, ''));
+            document.getElementById('visitorCount').textContent = (current + Math.floor(Math.random() * 10)).toLocaleString();
+        }, 3000);
+    </script>
+</body>
+</html>
