@@ -16,12 +16,40 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
             line-height: 1.6;
+            transition: background 0.5s;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        body.dark-mode .section {
+            background: rgba(30, 30, 30, 0.95);
+            color: #e0e0e0;
+        }
+
+        body.dark-mode h2 {
+            color: #9b9bff;
+        }
+
+        body.dark-mode .fun-fact {
+            background: #3a3a1a;
+            color: #fff3cd;
+        }
+
+        body.dark-mode .testimonial {
+            background: #1a2a3a;
+            color: #d1ecf1;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         header {
@@ -31,6 +59,36 @@
             border-radius: 20px;
             margin-bottom: 30px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        body.dark-mode header {
+            background: rgba(30, 30, 30, 0.95);
+            color: #e0e0e0;
+        }
+
+        .dark-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .spinning-ken {
+            font-size: 5em;
+            animation: spin 3s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         h1 {
@@ -39,6 +97,10 @@
             margin-bottom: 10px;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
             animation: bounce 2s infinite;
+        }
+
+        body.dark-mode h1 {
+            color: #9b9bff;
         }
 
         @keyframes bounce {
@@ -52,12 +114,21 @@
             font-style: italic;
         }
 
+        body.dark-mode .subtitle {
+            color: #b19cd9;
+        }
+
         .section {
             background: rgba(255, 255, 255, 0.95);
             padding: 30px;
             margin-bottom: 30px;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
         }
 
         h2 {
@@ -74,6 +145,11 @@
             padding: 15px;
             margin: 15px 0;
             border-radius: 5px;
+            transition: transform 0.2s;
+        }
+
+        .fun-fact:hover {
+            transform: translateX(10px);
         }
 
         .testimonial {
@@ -83,6 +159,11 @@
             margin: 15px 0;
             border-radius: 5px;
             font-style: italic;
+            transition: transform 0.2s;
+        }
+
+        .testimonial:hover {
+            transform: translateX(10px);
         }
 
         .achievement {
@@ -93,6 +174,13 @@
             margin: 5px;
             border-radius: 25px;
             font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .achievement:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .counter {
@@ -101,6 +189,10 @@
             color: #667eea;
             margin: 20px 0;
             font-weight: bold;
+        }
+
+        body.dark-mode .counter {
+            color: #9b9bff;
         }
 
         button {
@@ -120,6 +212,10 @@
             transform: scale(1.1);
         }
 
+        button:active {
+            transform: scale(0.95);
+        }
+
         .footer {
             text-align: center;
             padding: 30px;
@@ -135,11 +231,146 @@
             0%, 50%, 100% { opacity: 1; }
             25%, 75% { opacity: 0; }
         }
+
+        .skill-bar {
+            margin: 20px 0;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar-container {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body.dark-mode .skill-bar-container {
+            background: #2a2a2a;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-weight: bold;
+            transition: width 2s ease-out;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .floating-emoji {
+            position: fixed;
+            font-size: 2em;
+            pointer-events: none;
+            animation: float 10s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .ken-quote {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.3em;
+            text-align: center;
+            font-style: italic;
+            border-left: 5px solid #ff6b6b;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .ken-quote {
+            background: linear-gradient(135deg, #3a2a1a 0%, #4a3a2a 100%);
+            color: #ffecd2;
+        }
+
+        .quiz-option {
+            background: #f0f0f0;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        body.dark-mode .quiz-option {
+            background: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        .quiz-option:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(10px);
+        }
+
+        .quiz-option.correct {
+            background: #28a745;
+            color: white;
+            border: 2px solid #155724;
+        }
+
+        .quiz-option.wrong {
+            background: #dc3545;
+            color: white;
+            border: 2px solid #721c24;
+        }
+
+        .secret-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: #00ff00;
+            padding: 40px;
+            border-radius: 20px;
+            font-size: 2em;
+            z-index: 10000;
+            display: none;
+            text-align: center;
+            border: 3px solid #00ff00;
+        }
     </style>
 </head>
 <body>
+    <div class="secret-message" id="secretMessage">
+        🎮 KONAMI CODE ACTIVATED! 🎮<br>
+        Ken is officially TOO POWERFUL!<br>
+        <button onclick="closeSecret()" style="margin-top: 20px;">Close</button>
+    </div>
+
     <div class="container">
         <header>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+            <div class="spinning-ken">👨‍💻</div>
             <h1>🎉 KEN'S AWESOME WEBSITE 🎉</h1>
             <p class="subtitle">The Internet's #1 Ken O'Connor Resource</p>
             <p>👑 Est. Just Now 👑</p>
@@ -216,6 +447,85 @@
             <p id="randomFact" style="font-size: 1.3em; text-align: center; margin-top: 20px; min-height: 60px; color: #667eea; font-weight: bold;"></p>
         </div>
 
+        <div class="section">
+            <h2>💪 Ken's Skill Levels</h2>
+            <div class="skill-bar">
+                <div class="skill-name">☕ Coffee Brewing</div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 0%" data-width="150%">150%</div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">💻 Coding While Sleep-Deprived</div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 0%" data-width="99%">99%</div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">🐛 Bug Detection (Sixth Sense)</div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 0%" data-width="95%">95%</div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">🎯 Explaining Tech to Non-Tech People</div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 0%" data-width="87%">87%</div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">🎮 Procrastinating Productively</div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 0%" data-width="100%">100%</div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-name">🔥 Putting Out Fires (Literal: 12%, Metaphorical: 98%)</div>
+                <div class="skill-bar-container">
+                    <div class="skill-bar-fill" style="width: 0%" data-width="98%">98%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💭 Ken Says...</h2>
+            <div class="ken-quote" id="kenQuote">
+                "Click the button to receive wisdom!"
+            </div>
+            <p style="text-align: center;">
+                <button onclick="generateKenQuote()">🎲 Get Ken's Wisdom</button>
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>🧠 Ken Trivia Quiz</h2>
+            <p style="margin-bottom: 20px;"><strong>Question: What is Ken's superpower?</strong></p>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">
+                A) Flying at the speed of light
+            </div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">
+                B) Reading minds (but only what people think about pizza)
+            </div>
+            <div class="quiz-option" onclick="checkAnswer(this, true)">
+                C) Instantly knowing when someone wrote bad code
+            </div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">
+                D) Making coffee appear out of thin air
+            </div>
+            <p id="quizResult" style="text-align: center; font-size: 1.5em; margin-top: 20px; font-weight: bold;"></p>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Click Ken Challenge!</h2>
+            <p style="text-align: center;">Click the moving Ken emoji 10 times!</p>
+            <div style="position: relative; height: 300px; background: #f0f0f0; border-radius: 10px; overflow: hidden; margin-top: 20px;">
+                <div id="movingKen" onclick="clickKen()" style="position: absolute; font-size: 3em; cursor: pointer; transition: all 0.3s;">👨‍💻</div>
+            </div>
+            <p style="text-align: center; font-size: 1.5em; margin-top: 10px; font-weight: bold;">
+                Score: <span id="kenClickScore">0</span> / 10
+            </p>
+        </div>
+
         <div class="footer">
             <p>© 2026 Ken O'Connor Industries LLC™</p>
             <p>All rights reserved. Especially the good ones.</p>
@@ -227,10 +537,73 @@
 
     <script>
         let awesomeCount = 847;
+        let kenClickScore = 0;
+        let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+            createConfetti();
+        }
+
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Confetti effect
+        function createConfetti() {
+            const colors = ['#667eea', '#764ba2', '#ffc107', '#28a745', '#dc3545', '#17a2b8'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = Math.random() * window.innerHeight + 'px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    document.body.appendChild(confetti);
+
+                    const animation = confetti.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                        { transform: `translateY(${Math.random() * 500 + 500}px) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+                    ], {
+                        duration: Math.random() * 2000 + 1000,
+                        easing: 'cubic-bezier(0, .9, .57, 1)'
+                    });
+
+                    animation.onfinish = () => confetti.remove();
+                }, i * 30);
+            }
+            playBeep();
+        }
+
+        // Sound effect
+        function playBeep() {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
 
         function incrementAwesome() {
             awesomeCount++;
             document.getElementById('awesomeCounter').textContent = awesomeCount;
+            createConfetti();
             if (awesomeCount > 1000) {
                 alert('🎊 BREAKING: Ken has exceeded 1000 awesome moments! The internet is not prepared!');
             }
@@ -259,6 +632,128 @@
         function generateRandomKen() {
             const randomIndex = Math.floor(Math.random() * randomFacts.length);
             document.getElementById('randomFact').textContent = randomFacts[randomIndex];
+            playBeep();
+        }
+
+        // Ken's quotes
+        const kenQuotes = [
+            "There are only 10 types of people: those who understand binary and those who don't... and Ken.",
+            "Why do programmers prefer dark mode? Because light attracts bugs! - Ken probably",
+            "I don't always test my code, but when I do, I do it in production. - Not Ken (Ken tests everything)",
+            "Coffee: because sleep is for people who don't have Ken's energy levels.",
+            "Debugging: Being a detective in a crime movie where you are also the murderer. - Ken's Daily Reality",
+            "Code never lies, comments sometimes do. Trust Ken, not the comments.",
+            "Real programmers count from 0. Ken starts from -1 just to be safe.",
+            "If at first you don't succeed, call it version 1.0. - Ken's Release Strategy",
+            "There's no place like 127.0.0.1 - Ken's Home Sweet Home"
+        ];
+
+        function generateKenQuote() {
+            const randomIndex = Math.floor(Math.random() * kenQuotes.length);
+            document.getElementById('kenQuote').textContent = kenQuotes[randomIndex];
+            playBeep();
+        }
+
+        // Quiz functionality
+        let quizAnswered = false;
+        function checkAnswer(element, isCorrect) {
+            if (quizAnswered) return;
+
+            quizAnswered = true;
+            const allOptions = document.querySelectorAll('.quiz-option');
+            allOptions.forEach(opt => opt.style.pointerEvents = 'none');
+
+            if (isCorrect) {
+                element.classList.add('correct');
+                document.getElementById('quizResult').textContent = '🎉 Correct! You know Ken well!';
+                document.getElementById('quizResult').style.color = '#28a745';
+                createConfetti();
+            } else {
+                element.classList.add('wrong');
+                document.getElementById('quizResult').textContent = '❌ Wrong! But nice try!';
+                document.getElementById('quizResult').style.color = '#dc3545';
+            }
+
+            setTimeout(() => {
+                allOptions.forEach(opt => {
+                    opt.classList.remove('correct', 'wrong');
+                    opt.style.pointerEvents = 'auto';
+                });
+                document.getElementById('quizResult').textContent = '';
+                quizAnswered = false;
+            }, 3000);
+        }
+
+        // Moving Ken game
+        function moveKen() {
+            const ken = document.getElementById('movingKen');
+            const container = ken.parentElement;
+            const maxX = container.clientWidth - 60;
+            const maxY = container.clientHeight - 60;
+
+            ken.style.left = Math.random() * maxX + 'px';
+            ken.style.top = Math.random() * maxY + 'px';
+        }
+
+        function clickKen() {
+            kenClickScore++;
+            document.getElementById('kenClickScore').textContent = kenClickScore;
+            playBeep();
+
+            if (kenClickScore >= 10) {
+                alert('🎊 You caught Ken 10 times! You are officially Ken-certified!');
+                createConfetti();
+                kenClickScore = 0;
+                document.getElementById('kenClickScore').textContent = kenClickScore;
+            }
+
+            moveKen();
+        }
+
+        // Initialize moving Ken
+        setInterval(moveKen, 1500);
+        moveKen();
+
+        // Animate skill bars on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                    bar.style.width = bar.getAttribute('data-width');
+                });
+            }, 500);
+        });
+
+        // Floating emojis
+        function createFloatingEmoji() {
+            const emojis = ['💻', '☕', '🐛', '⌨️', '🎮', '🚀', '⭐', '🔥'];
+            const emoji = document.createElement('div');
+            emoji.className = 'floating-emoji';
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * window.innerWidth + 'px';
+            emoji.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            document.body.appendChild(emoji);
+
+            setTimeout(() => emoji.remove(), 13000);
+        }
+
+        setInterval(createFloatingEmoji, 2000);
+
+        // Konami code easter egg
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    document.getElementById('secretMessage').style.display = 'block';
+                    createConfetti();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        function closeSecret() {
+            document.getElementById('secretMessage').style.display = 'none';
         }
 
         // Increment visitor count randomly
